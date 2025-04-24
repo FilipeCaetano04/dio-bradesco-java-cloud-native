@@ -5,33 +5,37 @@
 ```mermaid
 classDiagram
     class User {
-        +String name
+        -String name
+        -Account account 
+        -Feature[] features
+        -Card card
+        -News[] news
     }
 
     class Account {
-        +String number
-        +String agency
-        +String balance
-        +String limit
+        -String number
+        -String agency
+        -String balance
+        -String limit
     }
 
     class Feature {
-        +String icons
-        +String description
+        -String icons
+        -String description
     }
 
     class Card {
-        +String number
-        +String limit
+        -String number
+        -String limit
     }
 
     class News {
-        +String icons
-        +String description
+        -String icons
+        -String description
     }
 
-    User --> Account : has
-    User --> Card : has
-    User --> Feature : has many
-    User --> News : has many
+    User *-- Account
+    User *-- Card 
+    User *-- Feature 
+    User *-- News 
 ```
